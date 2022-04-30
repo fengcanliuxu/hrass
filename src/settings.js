@@ -1,6 +1,8 @@
+// 项目信息的配置
+
 module.exports = {
 
-  title: 'Vue Admin Template',
+  title: '中台管理系统',
 
   /**
    * @type {boolean} true | false
