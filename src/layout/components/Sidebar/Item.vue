@@ -1,7 +1,7 @@
 <script>
 export default {
   name: 'MenuItem',
-  functional: true,
+  functional: true, // 代表组件为函数式组件--没有data状态，只会接受props属性，没有this，仅仅是一个函数
   props: {
     icon: {
       type: String,
@@ -20,12 +20,13 @@ export default {
       if (icon.includes('el-icon')) {
         vnodes.push(<i class={[icon, 'sub-el-icon']} />)
       } else {
-        vnodes.push(<svg-icon icon-class={icon}/>)
+        vnodes.push(<svg-icon icon-class={icon} />)
       }
     }
 
     if (title) {
-      vnodes.push(<span slot='title'>{(title)}</span>)
+      // eslint-disable-next-line jsx-quotes
+      vnodes.push(<span slot="title">{title}</span>)
     }
     return vnodes
   }
