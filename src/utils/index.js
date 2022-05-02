@@ -115,3 +115,20 @@ export function param2Obj(url) {
   })
   return obj
 }
+// 将列表数据库转换为树形数据=>递归算法=>自身调用自身=>条件不一样
+// 树形数据特点 所有根节点pid为空
+export function tranListToTreeDate(list, rootValue) {
+  const arr = []
+  list.forEach(item => {
+    if (item.pid === rootValue) {
+      // 找到根 找到叶
+     const children = tranListToTreeDate(list, item.id)
+     if (children.length) {
+       // 大于0说明找到了子节点
+       item.children = children
+     }
+      arr.push(item) // 内容加载到数组中
+    }
+  })
+  return arr
+}
