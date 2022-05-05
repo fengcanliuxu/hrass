@@ -9,7 +9,7 @@ export function getRoleList(params) {
 /**
  * 获取公司信息
  * **/
- export function getCompanyInfo(companyId) {
+export function getCompanyInfo(companyId) {
   return request({
     url: `/company/${companyId}`
   })
@@ -40,6 +40,14 @@ export function addRole(data) {
   return request({
     method: 'post',
     url: '/sys/role/',
+    data
+  })
+}
+// 给角色分配权限
+export function assignPerm(data) {
+  return request({
+    url: '/sys/role/assignPrem',
+    method: 'put',
     data
   })
 }

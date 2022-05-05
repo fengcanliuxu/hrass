@@ -1,10 +1,5 @@
 <template>
-  <el-row
-    type="flex"
-    justify="space-between"
-    align="middle"
-    style="height: 40px; width: 100%"
-  >
+  <el-row type="flex" justify="space-between" align="middle" style="height: 40px; width: 100%">
     <!-- 左侧内容 -->
     <el-col>
       <span>{{ treeNode.name }}</span>
@@ -24,7 +19,7 @@
             <!-- 具名插槽 -->
             <el-dropdown-menu slot="dropdown">
               <!-- 下拉选项 -->
-              <el-dropdown-item command="add">添加子部门</el-dropdown-item>
+              <el-dropdown-item command="add" :disabled="!checkPermission('add-dept')">添加子部门</el-dropdown-item>
               <el-dropdown-item v-if="!isRoot" command="edit">
                 编辑部门
               </el-dropdown-item>
